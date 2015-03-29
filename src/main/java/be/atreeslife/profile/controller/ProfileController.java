@@ -1,10 +1,13 @@
 package be.atreeslife.profile.controller;
 
-import be.atreeslife.profile.resource.*;
+import be.atreeslife.profile.resource.ProfileResource;
+import be.atreeslife.profile.resource.ProfileResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
 * @author Tom Verelst
@@ -21,12 +24,6 @@ public class ProfileController {
         return ResponseEntity.ok(resourceService.getResourceBySlug(slug));
     }
 
-    @ExceptionHandler(ResourceException.class)
-    public ResponseEntity<ErrorResource> handleException(ResourceException ex){
-        if(ex instanceof ProfileResourceNotFoundException){
-            return new ResponseEntity<>(new ErrorResource("Resource not found"), HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(new ErrorResource("Unknown exception"), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+
 
 }

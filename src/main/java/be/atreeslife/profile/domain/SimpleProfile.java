@@ -1,6 +1,7 @@
 package be.atreeslife.profile.domain;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @author Tom Verelst
@@ -76,17 +77,9 @@ class SimpleProfile implements Profile{
         return dayOfBirth;
     }
 
-    public void setDayOfBirth(LocalDate dayOfBirth) {
-        this.dayOfBirth = dayOfBirth;
-    }
-
     @Override
     public LocalDate getDayOfDeceit() {
         return dayOfDeceit;
-    }
-
-    public void setDayOfDeceit(LocalDate dayOfDeceit) {
-        this.dayOfDeceit = dayOfDeceit;
     }
 
     @Override
@@ -96,5 +89,18 @@ class SimpleProfile implements Profile{
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public void setLifeTime(LocalDate dayOfBirth, LocalDate dayOfDeceit) {
+        Objects.requireNonNull(dayOfBirth);
+        Objects.requireNonNull(dayOfDeceit);
+
+        if(dayOfDeceit.isBefore(dayOfBirth)){
+            throw new IllegalArgumentException("Day of birth cannot be before the day of deceit");
+        }
+
+        this.dayOfBirth = dayOfBirth;
+        this.dayOfDeceit = dayOfDeceit;
     }
 }

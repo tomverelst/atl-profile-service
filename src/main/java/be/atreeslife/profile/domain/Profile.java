@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * @author Tom Verelst
  */
-public interface Profile {
+public interface Profile extends Identifiable {
 
     String getId();
 

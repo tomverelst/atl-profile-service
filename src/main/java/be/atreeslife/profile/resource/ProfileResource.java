@@ -1,6 +1,7 @@
 package be.atreeslife.profile.resource;
 
 import be.atreeslife.profile.domain.Image;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,9 +12,14 @@ import java.util.List;
  *
  * @author Tom Verelst
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProfileResource {
 
     private String id;
+
+    private String slug;
+
+    private String url;
 
     private String firstName;
 
@@ -23,9 +29,9 @@ public class ProfileResource {
 
     private String biography;
 
-    private LocalDate dateOfBirth;
+    private LocalDate dayOfBirth;
 
-    private LocalDate dateOfDeceit;
+    private LocalDate dayOfDeceit;
 
     private List<Image> images = new ArrayList<>();
 
@@ -35,6 +41,14 @@ public class ProfileResource {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public String getFirstName() {
@@ -69,20 +83,20 @@ public class ProfileResource {
         this.biography = biography;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getDayOfBirth() {
+        return dayOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDayOfBirth(LocalDate dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
     }
 
-    public LocalDate getDateOfDeceit() {
-        return dateOfDeceit;
+    public LocalDate getDayOfDeceit() {
+        return dayOfDeceit;
     }
 
-    public void setDateOfDeceit(LocalDate dateOfDeceit) {
-        this.dateOfDeceit = dateOfDeceit;
+    public void setDayOfDeceit(LocalDate dayOfDeceit) {
+        this.dayOfDeceit = dayOfDeceit;
     }
 
     public List<Image> getImages() {

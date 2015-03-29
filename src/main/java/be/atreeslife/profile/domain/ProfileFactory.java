@@ -1,10 +1,12 @@
 package be.atreeslife.profile.domain;
 
 import be.atreeslife.profile.persistence.repository.ProfileDocument;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Tom Verelst
  */
+@Component
 public class ProfileFactory {
 
     public Profile fromDocument(ProfileDocument document){
@@ -15,7 +17,8 @@ public class ProfileFactory {
                 .lastName(document.getLastName())
                 .biography(document.getBiography())
                 .slug(document.getSlug())
-                .lifeTime(document.getDayOfBirth(), document.getDayOfDeceit())
+                .gender(document.getGender())
+//                .lifeTime(document.getDayOfBirth(), document.getDayOfDeceit())
                 .get();
     }
 

@@ -30,7 +30,7 @@ public class SimpleProfilePersistenceService implements ProfilePersistenceServic
           return Observable.create(observable -> {
                 executor.execute(() -> {
                     try {
-                        final ProfileDocument document = profiles.loadProfileBySlug(slug);
+                        final ProfileDocument document = profiles.findBySlug(slug);
                         if(document != null) {
                             final Profile profile = profileFactory.fromDocument(document);
                             observable.onNext(profile);

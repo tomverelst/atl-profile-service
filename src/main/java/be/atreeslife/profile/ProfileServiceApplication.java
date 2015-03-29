@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author Tom Verelst
  */
-
 @SpringBootApplication
 public class ProfileServiceApplication {
 

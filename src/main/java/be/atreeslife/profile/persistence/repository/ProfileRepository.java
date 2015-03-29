@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface ProfileRepository extends MongoRepository<ProfileDocument,String>{
 
-    ProfileDocument loadProfileBySlug(String slug);
+    ProfileDocument findBySlug(String slug);
 
 }

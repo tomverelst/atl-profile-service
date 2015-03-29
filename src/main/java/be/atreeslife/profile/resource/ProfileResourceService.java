@@ -31,6 +31,7 @@ public class ProfileResourceService {
         try {
             final Observable<Profile> observable = profiles.loadProfileBySlug(slug);
             // TODO load images from image service
+            // final Observable<Image> images = ...
 
             final Profile profile = BlockingObservable.from(observable).first();
 
