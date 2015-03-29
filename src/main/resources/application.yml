@@ -1,8 +1,13 @@
 spring:
   application:
     name: 'atl-profile-service'
+---
+spring:
+  profiles: local
   data:
     mongodb:
       host: localhost
       port: 27017
       database: atl
+
+atl.profile.service.baseUrl: http://localhost:8080

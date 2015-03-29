@@ -1,8 +1,5 @@
-package be.atreeslife.profile.controller;
+package be.atreeslife.profile.resource;
 
-import be.atreeslife.profile.resource.ErrorResource;
-import be.atreeslife.profile.resource.ProfileResourceNotFoundException;
-import be.atreeslife.profile.resource.ResourceException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,8 +19,6 @@ public class ResourceExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleInvalidResourceRequest(RuntimeException e, WebRequest request) {
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
-
 
         if(e instanceof ProfileResourceNotFoundException){
             return handleExceptionInternal(e,

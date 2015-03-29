@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
 
+    compile("org.springframework.hateoas:spring-hateoas")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: property("spring.boot.version")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: property("spring.boot.version")
     compile group: 'io.reactivex', name: 'rxjava', version: '1.0.8'

@@ -2,6 +2,7 @@ package be.atreeslife.profile.resource;
 
 import be.atreeslife.profile.domain.Image;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.hateoas.ResourceSupport;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,13 +14,9 @@ import java.util.List;
  * @author Tom Verelst
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProfileResource {
-
-    private String id;
+public class ProfileResource extends ResourceSupport {
 
     private String slug;
-
-    private String url;
 
     private String firstName;
 
@@ -34,14 +31,6 @@ public class ProfileResource {
     private LocalDate dayOfDeceit;
 
     private List<Image> images = new ArrayList<>();
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getSlug() {
         return slug;
